@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	font-family: 'Inter', sans-serif;
+	overflow-y: scroll;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	/* font-family: 'Source Sans Pro', sans-serif; */
+	/* font-family: 'DM Sans', sans-serif; */
+	/* font-family: 'Roboto', sans-serif; */
+	font-family: 'Inter', sans-serif;
+	font-weight: bold;
+}
+.contains-task-list {
+	list-style: none;
+}
+[type=checkbox], [type=radio] {
+	margin-right: 0.25rem;
+}
+.search-active {
+	@apply overflow-hidden;
+}
+
+body {
+	@apply text-gray-700 leading-relaxed break-words;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.heading-color {
+	@apply text-gray-900;
+}
+
+.dark body {
+	@apply text-gray-300 bg-black;
+}
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6,
+.dark .heading-color {
+	@apply text-white;
+}
+.data-color {
+	@apply text-gray-600
+}
+.dark .data-color {
+	@apply text-gray-400
+}
+
+
+.txtInputBasics {
+	@apply bg-transparent border border-gray-300 rounded-full h-16 no-outline focus-visible:border-gray-500 dark:border-gray-500 dark:focus-visible:border-gray-300 py-2.5 pl-8 pr-6;
+}
+.btn {
+	@apply py-2 px-8 capitalize font-semibold rounded-full no-outline h-16 bg-black dark:bg-white dark:text-black text-white inline-block
+}
+.responsive-16-9-iframe {
+	@apply relative pt-[56.25%]
+}
+.responsive-16-9-iframe iframe{
+	@apply w-full h-full absolute inset-0
+}
+.swiper-pagination-bullet-active {
+	@apply bg-primary
+}
+
+.postsSlider .swiper-pagination-bullet-active,
+.postsSlider .swiper-pagination-bullet {
+	@apply bg-gray-700
+}
+.dark .postsSlider .swiper-pagination-bullet-active,
+.dark .postsSlider .swiper-pagination-bullet {
+	@apply bg-gray-300
+}
+.responsive-table {
+	@apply overflow-x-auto my-8
+}
+.responsive-table table {
+	@apply my-0
+}
+
+.nav__link {
+	@apply capitalize text-base block p-2 cursor-pointer font-medium;
+}
+.dropDownMenuButton.isOpen + ul {
+	display: flex !important;
+}
+
+.SearchBox::-webkit-search-decoration,
+.SearchBox::-webkit-search-cancel-button,
+.SearchBox::-webkit-search-results-button,
+.SearchBox::-webkit-search-results-decoration {
+	display: none;
+}
+figure img {
+	width: 100%;
+}
+.figure-full {
+	width: calc(100vw - var(--scrollbar-width));
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+@media (min-width: 1024px) {
+	.figure-wide {
+		--extra-width: 120px;
+		width: calc(100% + var(--extra-width));
+		position: relative;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+}
+
+.no-outline:focus,
+.no-outline:focus-visible,
+.no-outline:focus-within {
+	outline: none;
+}
