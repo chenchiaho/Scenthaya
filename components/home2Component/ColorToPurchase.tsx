@@ -6,11 +6,11 @@ import { motion } from 'framer-motion'
 const priceFormat = (price) => `$${price.toFixed(2)}`
 
 const colorClass = {
-    gray: 'bg-gray-100',
-    blueGray: 'bg-blue-gray-100',
-    blue: 'bg-blue-100',
-    pink: 'bg-pink-100',
-    green: 'bg-green-100'
+    gray: { light: 'bg-gray-100', dark: 'bg-gray-200' },
+    blueGray: { light: 'bg-gray-500', dark: 'bg-gray-600' },
+    blue: { light: 'bg-blue-100', dark: 'bg-blue-200' },
+    pink: { light: 'bg-pink-100', dark: 'bg-pink-200' },
+    green: { light: 'bg-green-100', dark: 'bg-green-200' },
 };
 
 const ColorToPurchase = () => {
@@ -136,8 +136,9 @@ const ColorBox = (
             className={`flex transform rotate-45 w-8 h-8 rounded-full ${activeStyle}`}
             data-tip={label.toLocaleUpperCase()}
         >
-            <div className={`${colorClass[color]} w-4 h-8 rounded-l-full`}></div>
-            <div className={`${colorClass[color].replace('-100', '-200')} w-4 h-8 rounded-r-full`}></div>
+            {/* Use the light and dark color classes */}
+            <div className={`${colorClass[color].light} w-4 h-8 rounded-l-full`}></div>
+            <div className={`${colorClass[color].dark} w-4 h-8 rounded-r-full`}></div>
         </div>
     )
 }
