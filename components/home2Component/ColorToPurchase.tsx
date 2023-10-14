@@ -1,7 +1,6 @@
 'use client'
 import { useState } from "react"
 import Image from 'next/image'
-import { motion } from 'framer-motion'
 
 const priceFormat = (price) => `$${price.toFixed(2)}`
 
@@ -11,12 +10,12 @@ const colorClass = {
     blue: { light: 'bg-blue-100', dark: 'bg-blue-200' },
     pink: { light: 'bg-pink-100', dark: 'bg-pink-200' },
     green: { light: 'bg-green-100', dark: 'bg-green-200' },
-};
+}
 
 const ColorToPurchase = () => {
 
-    const [active, setActive] = useState(0);
-    const items = [
+    const [active, setActive] = useState(0)
+    const colorItems = [
         {
             images: [
                 "/images/home-2/product-0-silver.jpeg",
@@ -62,17 +61,17 @@ const ColorToPurchase = () => {
 
 
     return (
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center w-full h-full">
             <div className="flex flex-col space-y-10 md:flex-row md:space-y-0 md:space-x-10">
 
-                <div className="flex flex-col items-center space-y-5">
-                    <h1 className="mb-2 text-3xl">
+                <div className="flex flex-col items-start justify-center p-10 space-y-5 md:w-1/2">
+                    <h1 className="mb-2 text-5xl">
                         Find a beat that suits your style.
                     </h1>
                     <div className="flex space-x-5">
                         {
-                            items.map((item, idx) => (
-                                <button onClick={() => setActive(idx)} className="focus:outline-none">
+                            colorItems.map((item, idx) => (
+                                <button onClick={() => setActive(idx)} title={item.title} className="focus:outline-none">
                                     <ColorBox
                                         isActive={idx === active}
                                         color={item.colorScheme}
@@ -90,30 +89,33 @@ const ColorToPurchase = () => {
                     </p>
                 </div>
 
-                <div className="flex justify-center">
+                <div className="flex justify-center w-full md:w-1/2">
                     <Image
-                        key={items[active].images[0]}
-                        src={items[active].images[0]}
+                        key={colorItems[active].images[0]}
+                        src={colorItems[active].images[0]}
+                        className="w-full"
                         height={600}
-                        width={728}
-                        objectFit="cover"
-                        alt={items[active].title}
+                        width={600}
+                        objectFit="contain"
+                        alt={colorItems[active].title}
                     />
                 </div>
             </div>
-            <div className="mt-10">
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 
-                    <img src={items[active].images[0]} alt={items[active].title} className="w-32 h-32 mb-4 rounded-full" />
+            <div className="flex flex-col items-center justify-center mt-5">
 
-                    <p>{items[active].title}</p>
-                    <p className="font-mono text-5xl">
-                        {priceFormat(399.9)}
+                <p>{colorItems[active].title}</p>
+                <p className="font-mono text-5xl">
+                    {priceFormat(399.9)}
+                </p>
+
+
+                <button className="px-20 py-3 mt-4 mb-20 text-gray-800 bg-gray-100 rounded-lg p-50" >
+                    <p>
+                        Purchase {colorItems[active].title} SoundMax
                     </p>
-                    <button className="px-6 py-2 mt-4 text-gray-800 bg-gray-300 rounded-lg" >
-                        Purchase {items[active].title} SoundMax
-                    </button>
-                </motion.div>
+
+                </button>
 
             </div>
 
@@ -134,7 +136,6 @@ const ColorBox = (
     return (
         <div
             className={`flex transform rotate-45 w-8 h-8 rounded-full ${activeStyle}`}
-            data-tip={label.toLocaleUpperCase()}
         >
             {/* Use the light and dark color classes */}
             <div className={`${colorClass[color].light} w-4 h-8 rounded-l-full`}></div>

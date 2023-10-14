@@ -13,17 +13,17 @@ const SpecBlockReverse = () => {
                     <a href="#" className="font-bold">Read More</a>
                 </div>
 
-                <div className="flex-1 overflow-hidden rounded-2xl animate__animated animate__fadeInRight min-h-[300px]">
+                <div className="flex-1 overflow-hidden sm:rounded-2xl animate__animated animate__fadeInRight ">
                     <Image
-                        src="/images/home-2/product-0-silver-1.jpeg"
+                        className="w-full h-full"
+                        src="/images/home-2/product-0-gray.jpeg"
                         alt="product 0"
-                        fill={true}
+                        width={400}
+                        height={400}
                         objectPosition="center"
-                        objectFit="cover"
+                        objectFit="contain"
                     />
                 </div>
-
-
             </div>
         </>
     )
