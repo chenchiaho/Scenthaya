@@ -5,12 +5,13 @@ const SpecBlock = () => {
         <>
             <div className="flex flex-col mb-20 sm:flex-row md:space-x-6">
 
-                <div className="flex-1 overflow-hidden rounded-2xl animate__animated animate__fadeInLeft min-h-[300px]">
+                <div className="flex-1 w-full overflow-hidden sm:rounded-2xl animate__animated animate__fadeInLeft">
                     <Image
-                        className=""
+                        className="w-full h-full"
                         src="/images/home-2/product-0-silver.jpeg"
                         alt="product 0"
-                        fill
+                        width={400}
+                        height={400}
                         objectPosition="center"
                         objectFit="cover"
                     />
