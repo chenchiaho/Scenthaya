@@ -62,13 +62,13 @@ const ColorToPurchase = () => {
 
     return (
         <div className="flex flex-col items-center w-full h-full">
-            <div className="flex flex-col space-y-10 md:flex-row md:space-y-0 md:space-x-10">
+            <div className="flex flex-col md:flex-row ">
 
-                <div className="flex flex-col items-start justify-center p-10 space-y-5 md:w-1/2">
+                <div className="flex flex-col items-start justify-center flex-1 p-8 mb-5 space-y-5 md:w-1/2">
                     <h1 className="mb-2 text-5xl">
                         Find a beat that suits your style.
                     </h1>
-                    <div className="flex space-x-5">
+                    <div className="space-x-5">
                         {
                             colorItems.map((item, idx) => (
                                 <button onClick={() => setActive(idx)} title={item.title} className="focus:outline-none">
@@ -89,16 +89,20 @@ const ColorToPurchase = () => {
                     </p>
                 </div>
 
-                <div className="flex justify-center w-full md:w-1/2">
-                    <Image
-                        key={colorItems[active].images[0]}
-                        src={colorItems[active].images[0]}
-                        className="w-full"
-                        height={600}
-                        width={600}
-                        objectFit="contain"
-                        alt={colorItems[active].title}
-                    />
+                <div className="flex justify-center md:w-1/2">
+                    <div className="flex items-center w-full justify-center md:w-[435px] md:h-[358px]">
+                        <Image
+                            key={colorItems[active].images[0]}
+                            src={colorItems[active].images[0]}
+                            className="w-full h-full"
+                            height={358}
+                            width={435}
+                            objectFit="contain"
+                            alt={colorItems[active].title}
+
+                        />
+
+                    </div>
                 </div>
             </div>
 
