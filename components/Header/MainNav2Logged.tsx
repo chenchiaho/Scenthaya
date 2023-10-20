@@ -9,9 +9,10 @@ import CartDropdown from "./CartDropdown";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/navigation";
 
-export interface MainNav2LoggedProps {}
+export interface MainNav2LoggedProps { }
 
 const MainNav2Logged: FC<MainNav2LoggedProps> = () => {
+
   const inputRef = createRef<HTMLInputElement>();
   const [showSearchForm, setShowSearchForm] = useState(false);
   const router = useRouter();
@@ -59,7 +60,7 @@ const MainNav2Logged: FC<MainNav2LoggedProps> = () => {
             ref={inputRef}
             type="text"
             placeholder="Type and press enter"
-            className="border-none bg-transparent focus:outline-none focus:ring-0 w-full text-base"
+            className="w-full text-base bg-transparent border-none focus:outline-none focus:ring-0"
             autoFocus
           />
           <button type="button" onClick={() => setShowSearchForm(false)}>
@@ -73,12 +74,12 @@ const MainNav2Logged: FC<MainNav2LoggedProps> = () => {
 
   const renderContent = () => {
     return (
-      <div className="h-20 flex justify-between">
-        <div className="flex items-center lg:hidden flex-1">
+      <div className="flex justify-between h-20">
+        <div className="flex items-center flex-1 lg:hidden">
           <MenuBar />
         </div>
 
-        <div className="lg:flex-1 flex items-center">
+        <div className="flex items-center lg:flex-1">
           <Logo className="flex-shrink-0" />
         </div>
 
@@ -86,10 +87,10 @@ const MainNav2Logged: FC<MainNav2LoggedProps> = () => {
           {showSearchForm ? renderSearchForm() : <Navigation />}
         </div>
 
-        <div className="flex-1 flex items-center justify-end text-slate-700 dark:text-slate-100">
+        <div className="flex items-center justify-end flex-1 text-slate-700 dark:text-slate-100">
           {!showSearchForm && (
             <button
-              className="hidden lg:flex w-10 h-10 sm:w-12 sm:h-12 rounded-full text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none items-center justify-center"
+              className="items-center justify-center hidden w-10 h-10 rounded-full lg:flex sm:w-12 sm:h-12 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none"
               onClick={() => setShowSearchForm(!showSearchForm)}
             >
               {renderMagnifyingGlassIcon()}
@@ -103,7 +104,7 @@ const MainNav2Logged: FC<MainNav2LoggedProps> = () => {
   };
 
   return (
-    <div className="nc-MainNav2Logged relative z-10 bg-white dark:bg-neutral-900 border-b border-slate-100 dark:border-slate-700">
+    <div className="relative z-10 bg-white border-b nc-MainNav2Logged dark:bg-neutral-900 border-slate-100 dark:border-slate-700">
       <div className="container ">{renderContent()}</div>
     </div>
   );
