@@ -20,9 +20,23 @@ module.exports = {
   ],
   theme: {
     extend: {
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: "1rem",
+          xl: "40px",
+          "2xl": "128px",
+        },
+      },
       colors: {
         primary: colors.emerald[500],
         ["primary-shade"]: colors.emerald[300]
+      },
+      padding: {
+        '8': '2rem',
+        '9': '2.25rem',
+        '10': '2.5rem',
+        // ... and so on for other sizes if needed
       },
       typography: (theme) => ({
         lg: {
