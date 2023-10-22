@@ -1,5 +1,5 @@
 import '@/styles/globals.css'
-import Footer from '@/shared/Footer'
+import Footer from '@/app/Footer'
 import SiteHeader from '@/app/SiteHeader'
 
 export const metadata = {
