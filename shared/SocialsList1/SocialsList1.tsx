@@ -16,7 +16,7 @@ const socials: SocialType[] = [
   { name: "Twitter", icon: twitter, href: "#" },
 ];
 
-const SocialsList1: FC<SocialsList1Props> = ({ className = "space-y-3" }) => {
+const SocialsList1 = ({ className = "space-y-3" }) => {
   const renderItem = (item: SocialType, index: number) => {
     return (
       <a
