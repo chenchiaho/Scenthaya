@@ -1,22 +1,22 @@
-import '@/styles/globals.css'
-import Footer from '@/app/Footer'
-import SiteHeader from '@/app/SiteHeader'
+import "@/styles/globals.css";
+import Footer from "@/app/Footer";
+import SiteHeader from "@/app/SiteHeader";
 
 export const metadata = {
-  title: 'Scenthaya',
-  description: 'The essence of Thai fragrance',
-}
+  title: "Scenthaya",
+  description: "The essence of Thai fragrance",
+};
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <body>
-        <SiteHeader />
+        {/* <SiteHeader /> */}
         {children}
         <Footer />
       </body>
     </html>
-  )
-}
+  );
+};
 
-export default RootLayout
+export default RootLayout;
