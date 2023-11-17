@@ -150,139 +150,146 @@ const TabFilters = () => {
                 leaveFrom='opacity-100 scale-100'
                 leaveTo='opacity-0 scale-95'
               >
-                <Dialog.Panel className='sticky top-0 flex items-center justify-center px-6 bg-white border-b'>
-                  <Dialog.Title
-                    as='h3'
-                    className='px-6 py-4 text-lg font-medium leading-6 text-gray-900'
-                  >
-                    Products filter
-                  </Dialog.Title>
-                  <div className='absolute left-6 top-3'>
-                    <ButtonClose onClick={closeModalMoreFilter} />
+                <Dialog.Panel>
+                  <div className='sticky top-0 flex items-center justify-center px-6 bg-white border-b'>
+                    <Dialog.Title
+                      as='h3'
+                      className='px-6 py-4 text-lg font-medium leading-6 text-gray-900'
+                    >
+                      Products filter
+                    </Dialog.Title>
+                    <div className='absolute left-6 top-3'>
+                      <ButtonClose onClick={closeModalMoreFilter} />
+                    </div>
+                  </div>
+
+                  <div className='flex flex-col px-14 my-3.5'>
+                    <h3 className='mb-4 text-xl font-medium text-start'>
+                      Categories
+                    </h3>
+                    <div className='flex flex-wrap border-b pb-7'>
+                      {Data['Categories'].map((v, i) => (
+                        <div key={v} className='w-1/2 my-3'>
+                          <Checkbox name={v} label={v} defaultChecked={false} />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className='flex flex-col px-14 my-3.5'>
+                    <h3 className='mb-4 text-xl font-medium text-start'>
+                      Colors
+                    </h3>
+                    <div className='flex flex-wrap border-b pb-7'>
+                      {Data['Colors'].map((v, i) => (
+                        <div key={v} className='w-1/2 my-3'>
+                          <Checkbox name={v} label={v} defaultChecked={false} />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className='flex flex-col px-14 my-3.5'>
+                    <h3 className='mb-4 text-xl font-medium text-start'>
+                      Size
+                    </h3>
+                    <div className='flex flex-wrap border-b pb-7'>
+                      {Data['Size'].map((v, i) => (
+                        <div key={v} className='w-1/2 my-3'>
+                          <Checkbox name={v} label={v} defaultChecked={false} />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className='flex flex-col px-14 my-3.5'>
+                    <h3 className='mb-4 text-xl font-medium text-start'>
+                      Range Prices
+                    </h3>
+                    <Slider
+                      range
+                      min={0}
+                      max={1000}
+                      step={1}
+                      defaultValue={[rangePrices[0], rangePrices[1]]}
+                      allowCross={false}
+                      onChange={(v: number | number[]) => {
+                        if (Array.isArray(v)) {
+                          setRangePrices(v);
+                        }
+                      }}
+                    />
+                    <div className='flex justify-between border-b py-7'>
+                      <div className='flex flex-col space-y-1'>
+                        <label htmlFor='minPrice'>Min price</label>
+                        <div className='border border-gray-300 rounded-full'>
+                          <span className='pl-4'>$</span>
+                          <input
+                            type='text'
+                            className='bg-transparent border-none'
+                            disabled
+                            value={rangePrices[0]}
+                            name='minPrice'
+                            id='minPrice'
+                          />
+                        </div>
+                      </div>
+
+                      <div className='flex flex-col space-y-1'>
+                        <label htmlFor='maxPrice'>Max price</label>
+                        <div className='w-full border border-gray-300 rounded-full'>
+                          <span className='pl-4'>$</span>
+                          <input
+                            type='text'
+                            className='bg-transparent border-none'
+                            disabled
+                            value={rangePrices[1]}
+                            name='maxPrice'
+                            id='maxPrice'
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className='flex flex-col px-14 my-3.5'>
+                    <h3 className='mb-4 text-xl font-medium text-start'>
+                      Sort Order
+                    </h3>
+                    <div className='flex flex-wrap border-b pb-7'>
+                      {Data['SortOrder'].map((v, i) => (
+                        <div key={v} className='w-full my-3'>
+                          <Radio name={v} label={v} defaultChecked={false} />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className='flex flex-col px-14 my-3.5'>
+                    <h3 className='mb-4 text-xl font-medium text-start'>
+                      On Sale!
+                    </h3>
+                    <div className='flex justify-between pb-4'>
+                      <div>
+                        <h5 className='font-bold'>On sale!</h5>
+                        <p className='text-gray-500'>
+                          Products currently on sale
+                        </p>
+                      </div>
+                      <div>
+                        <MySwitch />
+                      </div>
+                    </div>
+                  </div>
+                  <div className='sticky bottom-0 flex justify-between py-6 bg-white px-11'>
+                    <ButtonSecondary onClick={closeModalMoreFilter}>
+                      Clear
+                    </ButtonSecondary>
+                    <ButtonPrimary onClick={closeModalMoreFilter}>
+                      Apply
+                    </ButtonPrimary>
                   </div>
                 </Dialog.Panel>
-
-                <div className='flex flex-col px-14 my-3.5'>
-                  <h3 className='mb-4 text-xl font-medium text-start'>
-                    Categories
-                  </h3>
-                  <div className='flex flex-wrap border-b pb-7'>
-                    {Data['Categories'].map((v, i) => (
-                      <div key={v} className='w-1/2 my-3'>
-                        <Checkbox name={v} label={v} defaultChecked={false} />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className='flex flex-col px-14 my-3.5'>
-                  <h3 className='mb-4 text-xl font-medium text-start'>
-                    Colors
-                  </h3>
-                  <div className='flex flex-wrap border-b pb-7'>
-                    {Data['Colors'].map((v, i) => (
-                      <div key={v} className='w-1/2 my-3'>
-                        <Checkbox name={v} label={v} defaultChecked={false} />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className='flex flex-col px-14 my-3.5'>
-                  <h3 className='mb-4 text-xl font-medium text-start'>Size</h3>
-                  <div className='flex flex-wrap border-b pb-7'>
-                    {Data['Size'].map((v, i) => (
-                      <div key={v} className='w-1/2 my-3'>
-                        <Checkbox name={v} label={v} defaultChecked={false} />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className='flex flex-col px-14 my-3.5'>
-                  <h3 className='mb-4 text-xl font-medium text-start'>
-                    Range Prices
-                  </h3>
-                  <Slider
-                    range
-                    min={0}
-                    max={1000}
-                    step={1}
-                    defaultValue={[rangePrices[0], rangePrices[1]]}
-                    allowCross={false}
-                    onChange={(v: number | number[]) => {
-                      if (Array.isArray(v)) {
-                        setRangePrices(v);
-                      }
-                    }}
-                  />
-                  <div className='flex justify-between border-b py-7'>
-                    <div className='flex flex-col space-y-1'>
-                      <label htmlFor='minPrice'>Min price</label>
-                      <div className='border border-gray-300 rounded-full'>
-                        <span className='pl-4'>$</span>
-                        <input
-                          type='text'
-                          className='bg-transparent border-none'
-                          disabled
-                          value={rangePrices[0]}
-                          name='minPrice'
-                          id='minPrice'
-                        />
-                      </div>
-                    </div>
-
-                    <div className='flex flex-col space-y-1'>
-                      <label htmlFor='maxPrice'>Max price</label>
-                      <div className='w-full border border-gray-300 rounded-full'>
-                        <span className='pl-4'>$</span>
-                        <input
-                          type='text'
-                          className='bg-transparent border-none'
-                          disabled
-                          value={rangePrices[1]}
-                          name='maxPrice'
-                          id='maxPrice'
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className='flex flex-col px-14 my-3.5'>
-                  <h3 className='mb-4 text-xl font-medium text-start'>
-                    Sort Order
-                  </h3>
-                  <div className='flex flex-wrap border-b pb-7'>
-                    {Data['SortOrder'].map((v, i) => (
-                      <div key={v} className='w-full my-3'>
-                        <Radio name={v} label={v} defaultChecked={false} />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className='flex flex-col px-14 my-3.5'>
-                  <h3 className='mb-4 text-xl font-medium text-start'>
-                    On Sale!
-                  </h3>
-                  <div className='flex justify-between pb-4'>
-                    <div>
-                      <h5 className='font-bold'>On sale!</h5>
-                      <p className='text-gray-500'>
-                        Products currently on sale
-                      </p>
-                    </div>
-                    <div>
-                      <MySwitch />
-                    </div>
-                  </div>
-                </div>
-
-                <div className='sticky bottom-0 flex justify-between py-6 bg-white px-11'>
-                  <ButtonSecondary>Clear</ButtonSecondary>
-                  <ButtonPrimary>Apply</ButtonPrimary>
-                </div>
               </Transition.Child>
             </div>
           </Dialog>
@@ -291,7 +298,7 @@ const TabFilters = () => {
     );
   };
 
-  return <div>{renderTabMobileFilter()}</div>;
+  return <div className='lg:hidden'>{renderTabMobileFilter()}</div>;
 };
 
 export default TabFilters;
