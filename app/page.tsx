@@ -17,7 +17,7 @@ const Home = async ({ params }: { params: { id: string } }) => {
 
         <hr className='border-slate-200 dark:border-slate-700' />
 
-        <main>
+        <main className='mt-10'>
           <TabFilters />
         </main>
       </div>
